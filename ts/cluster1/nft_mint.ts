@@ -16,11 +16,19 @@ umi.use(mplTokenMetadata())
 const mint = generateSigner(umi);
 
 (async () => {
-    // let tx = ???
-    // let result = await tx.sendAndConfirm(umi);
-    // const signature = base58.encode(result.signature);
-    
-    // console.log(`Succesfully Minted! Check out your TX here:\nhttps://explorer.solana.com/tx/${signature}?cluster=devnet`)
+    let tx = createNft(umi, {
+        mint,
+        name: "HAHATOCO",
+        symbol: "HAHA",
+        uri: "https://www.mpuni.co.jp/news/pressrelease/detail/news_file/file/hahatoco2.jpg",
+        sellerFeeBasisPoints: percentAmount(5.5),
+        isCollection: false,
+    });
+
+    let result = await tx.sendAndConfirm(umi);
+    const signature = base58.encode(result.signature);
+
+    console.log(`Succesfully Minted! Check out your TX here:\nhttps://explorer.solana.com/tx/${signature}?cluster=devnet`)
 
     console.log("Mint Address: ", mint.publicKey);
 })();
