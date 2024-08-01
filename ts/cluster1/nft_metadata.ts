@@ -16,20 +16,20 @@ umi.use(signerIdentity(signer));
     try {
         // Follow this JSON structure
         // https://docs.metaplex.com/programs/token-metadata/changelog/v1.0#json-structure
-        const image = createGenericFile("https://www.mpuni.co.jp/news/pressrelease/detail/news_file/file/hahatoco2.jpg", "hahatoco2.jpg", { contentType: "image/jpg" });
+        // const image = createGenericFile("", "hahatoco2.jpg", { contentType: "image/jpg" });
         const metadata = {
             name: "HAHATOCO",
             symbol: "HAHA",
-            description: "A pencil branch",
-            image,
-            // attributes: [
-            //     { trait_type: '?', value: '?' }
-            // ],
+            description: "A generug",
+            image: "https://arweave.net/_vxXJJxYIE4y879yl69n-23e4J6f4ncckGtDPc126R",
+            attributes: [
+                { trait_type: 'background', value: 'purpole' }
+            ],
             properties: {
                 files: [
                     {
-                        type: "image/jpg",
-                        uri: "https://www.mpuni.co.jp/news/pressrelease/detail/news_file/file/hahatoco2.jpg"
+                        type: "image/png",
+                        uri: "https://arweave.net/_vxXJJxYIE4y879yl69n-23e4J6f4ncckGtDPc126R"
                     },
                 ]
             },
@@ -37,6 +37,8 @@ umi.use(signerIdentity(signer));
         };
 
         const myUri = await umi.uploader.uploadJson(metadata);
+
+        console.log("Metadata: ", metadata);
         console.log("Your image URI: ", myUri);
     }
     catch (error) {

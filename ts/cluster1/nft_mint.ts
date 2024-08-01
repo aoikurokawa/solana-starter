@@ -20,7 +20,7 @@ const mint = generateSigner(umi);
         mint,
         name: "HAHATOCO",
         symbol: "HAHA",
-        uri: "https://www.mpuni.co.jp/news/pressrelease/detail/news_file/file/hahatoco2.jpg",
+        uri: "https://arweave.net/_vxXJJxYIE4y879yl69n-23e4J6f4ncckGtDPc126R4",
         sellerFeeBasisPoints: percentAmount(5.5),
         isCollection: false,
     });
